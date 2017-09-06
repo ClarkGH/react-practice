@@ -1,0 +1,13 @@
+{
+  "name": "reactpractice",
+  "version": "1.0.0",
+  "description": "just playing",
+  "main": "index.js",
+  "repository": "https://github.com/ClarkGH/react-practice.git",
+  "author": "clarkgh <demolisho@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
