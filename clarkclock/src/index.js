@@ -8,5 +8,3 @@ function renderApp() {
   ReactDOM.render(<App />, document.getElementById('root'));
   registerServiceWorker();
 }
-
-setInterval(renderApp, 1000);
