@@ -24,14 +24,14 @@ class App extends Component {
     });
   }
 
-  reactEvent() {
-    console.log( "How events are handled in react!" );
+  handleClick() {
+    console.log( "This element: " + this );
   }
 
   render() {
     return (
       <div className="App">
-        <h1 onClick={this.reactEvent}>Time</h1>
+        <h1 onClick={(e) => this.handleClick(e)}>Time</h1>
         <h2>{this.state.date.toLocaleTimeString()}</h2>
     </div>
     );
