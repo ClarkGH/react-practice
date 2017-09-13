@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -25,10 +24,14 @@ class App extends Component {
     });
   }
 
+  reactEvent() {
+    console.log( "How events are handled in react!" );
+  }
+
   render() {
     return (
       <div className="App">
-        <h1>Time</h1>
+        <h1 onClick={this.reactEvent}>Time</h1>
         <h2>{this.state.date.toLocaleTimeString()}</h2>
     </div>
     );
