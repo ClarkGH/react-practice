@@ -1,0 +1,8 @@
+{
+  "name": "redditAPI",
+  "version": "1.0.0",
+  "description": "following more advanced redux methods for apis",
+  "main": "index.js",
+  "author": "Clark Hinchcliff",
+  "license": "MIT"
+}
