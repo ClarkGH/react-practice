@@ -1,0 +1,13 @@
+'use strict';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.jsx';
+import Pokedex from './pokedex';
+
+Pokedex();
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
