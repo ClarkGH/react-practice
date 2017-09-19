@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Pokedex from '../pokedex';
 
 class App extends React.Component {
   render() {
