@@ -3,11 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
-import Pokedex from './pokedex';
-
-Pokedex( 1, ( response ) => {
-  console.log( response );
-});
+import Pokedex from './modules/pokedex';
 
 ReactDOM.render(
   <App />,
