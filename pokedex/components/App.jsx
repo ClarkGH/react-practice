@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Pokedex from '../modules/pokedex';
+import SearchBar from './searchbar.jsx';
+import _ from 'underscore';
 
 class App extends React.Component {
   constructor( props ) {
@@ -15,7 +17,6 @@ class App extends React.Component {
       pokemonImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
     }
 
-    this.selectPokemon( 1 );
   }
 
   selectPokemon( pokedexNum ) {
@@ -32,12 +33,15 @@ class App extends React.Component {
 
   render() {
     return ( 
-      <div className="pokemon-info">
-        <h1>Pokedex</h1> 
-        <h2>Name: { this.state.selectedPokemon }</h2>
-        <h2>Entry#: { this.state.pokemonId }</h2>
-        <h2>Type1: { this.state.pokemonType1 } Type2: { this.state.pokemonType2 }</h2>
-        <img className="pokemon-image" src={this.state.pokemonImgUrl}/>
+      <div className="pokedex">
+        <SearchBar />
+        <div className="pokemon-info">
+          <h1>Pokedex</h1> 
+          <h2>Name: { this.state.selectedPokemon }</h2>
+          <h2>Entry#: { this.state.pokemonId }</h2>
+          <h2>Type1: { this.state.pokemonType1 } Type2: { this.state.pokemonType2 }</h2>
+          <img className="pokemon-image" src={this.state.pokemonImgUrl}/>
+        </div>    
       </div> 
     );
   }
