@@ -32,9 +32,11 @@ class App extends React.Component {
   }
 
   render() {
+    const selectPokemon = _.debounce( ( pokedexNum ) => { this.selectPokemon( pokedexNum ) }, 300 );
+
     return ( 
       <div className="pokedex">
-        <SearchBar />
+        <SearchBar onSearchTermChange={ selectPokemon } />
         <div className="pokemon-info">
           <h1>Pokedex</h1> 
           <h2>Name: { this.state.selectedPokemon }</h2>
