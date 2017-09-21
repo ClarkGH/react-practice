@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   selectPokemon( pokedexNum ) {
-    Pokedex( 1, ( pokemonData ) => {
+    Pokedex( pokedexNum, ( pokemonData ) => {
       this.setState({
         selectedPokemon: pokemonData.name,
         pokemonId: pokemonData.id,
