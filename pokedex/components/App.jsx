@@ -22,7 +22,7 @@ class App extends React.Component {
   selectPokemon( pokedexNum ) {
     Pokedex( pokedexNum, ( pokemonData ) => {
       var type1,
-        type2='none';
+        type2 = 'none';
 
       if ( pokemonData.types.length === 2 ) {
         type1 = pokemonData.types[1].type.name;
