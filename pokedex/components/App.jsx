@@ -21,11 +21,21 @@ class App extends React.Component {
 
   selectPokemon( pokedexNum ) {
     Pokedex( pokedexNum, ( pokemonData ) => {
+      var type1,
+        type2='none';
+
+      if ( pokemonData.types.length === 2 ) {
+        type1 = pokemonData.types[1].type.name;
+        type2 = pokemonData.types[0].type.name;
+      } else {
+        type1 = pokemonData.types[0].type.name;
+      }
+
       this.setState({
         selectedPokemon: pokemonData.name,
         pokemonId: pokemonData.id,
-        pokemonType1: pokemonData.types[1].type.name,
-        pokemonType2: pokemonData.types[0].type.name,
+        pokemonType1: type1,
+        pokemonType2: type2,
         pokemonImgUrl: pokemonData.sprites.front_default
       });
     });
