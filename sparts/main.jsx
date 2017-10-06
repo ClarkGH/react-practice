@@ -33,9 +33,7 @@ const userData = {
 
 // grab the userData in this method
 const fetchUser = (email) => {
-  if ( userData.email ) {
-    return userData.email;
-  }
+  console.log(email);
 }
 
 class UserInfo extends React.Component{
@@ -50,15 +48,28 @@ class UserInfo extends React.Component{
     };
   }
 
-  render() {
-    let input;
+  handleChange(value) {
+    if (value) {
+      this.setState({ input: value });
+    } else {
 
+    }
+  }
+
+  handleClick() {
+    // console.log(this.state.input);
+  }
+
+  render() {
     return (
       <div>
         {this.props.children(this.state.users, fetchUser)}
         <div className="getUser">
-          <input type="text"></input>
-          <button>Add player</button>
+          <input 
+            onChange={event => this.handleChange(event.target.value)} 
+            type="text">
+          </input>
+
         </div>    
       </div>
     );
