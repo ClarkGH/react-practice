@@ -63,7 +63,7 @@ class UserCards extends React.Component{
   render() {
     return (
       <div> 
-        <p> poop </p>
+        <p> Player card here </p>
       </div>
     );
   }
