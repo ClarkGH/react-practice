@@ -33,21 +33,26 @@ const userData = {
 
 // grab the userData in this method
 const fetchUser = (email) => { //return object with name & image url
-  
+  console.log(email)
 }
 
 class UserInfo extends React.Component{
   // Implement this
   // fetchUser(userData);
   constructor(props) {
+
     super(props);
 
     this.state = {
       emailInput: '',
-      users: [this.props.email]
+      users: []
     };
 
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentWillMount() {
+    
   }
 
   handleChange(value) {
@@ -63,7 +68,7 @@ class UserInfo extends React.Component{
   render() {
     return (
       <div>
-        {this.props.children(this.state.input, fetchUser)}
+        {this.props.children(this.state.users, fetchUser)}
 
         <div className="getUser">
           <input 
@@ -95,7 +100,7 @@ class UserCards extends React.Component{
 
 class NoUsers extends React.Component{
   render() {
-    return alert('No Players Found.');
+    return <div>No Players Found.</div>;
   }
 }
 
