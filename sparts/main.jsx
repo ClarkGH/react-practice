@@ -70,21 +70,8 @@ class UserCards extends React.Component{
 }
 
 class NoUsers extends React.Component{
-  // Implement this
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      something: 'bad'
-    };
-  }
-
   render() {
-    return (
-      <div> 
-        <p> {this.state.something} </p>
-      </div>
-    );
+    return alert('player not found');
   }
 }
 
