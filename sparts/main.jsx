@@ -3,6 +3,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const userData = {
+  'scurry@warriors.com': {
+    firstName: 'Steph',
+    lastName: 'Curry',
+    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnHBqYZ7nE0Bo6PcpzHbo4ONXpSXkG8kzI8rSUhTvm2LP6DHm9',
+  },
+  'kdurant@warriors.com': {
+    firstName: 'Kevin',
+    lastName: 'Durant',
+    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffO_a5ljAYdZaqtiFgHVQ_F3pIwChM8wOvhBOzt-O1yZq8-Pbvg',
+  },
+}
+
 // grab the userData in this method
 const fetchUser = (email) => {
   // Implement this
@@ -15,18 +28,12 @@ class UserInfo extends React.Component{
     super(props);
     
     this.state = {
-      nothing: 'thrice'
+      users: userData
     };
   }
 
   render() {
-    return (
-      <div> 
-        {console.log(this.props)}
-        <p> {this.state.nothing} </p>
-        }
-      </div>
-    );
+    return this.props.children()
   }
 }
 
@@ -34,10 +41,6 @@ class UserCard extends React.Component{
   // Implement this
   constructor(props) {
     super(props);
-    
-    this.state = {
-      something: 'nice'
-    };
   }
 
   render() {
@@ -68,25 +71,11 @@ class NotFound extends React.Component{
   }
 }
 
-const userData = {
-  'scurry@warriors.com': {
-    firstName: 'Steph',
-    lastName: 'Curry',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnHBqYZ7nE0Bo6PcpzHbo4ONXpSXkG8kzI8rSUhTvm2LP6DHm9',
-  },
-  'kdurant@warriors.com': {
-    firstName: 'Kevin',
-    lastName: 'Durant',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffO_a5ljAYdZaqtiFgHVQ_F3pIwChM8wOvhBOzt-O1yZq8-Pbvg',
-  },
-}
-
 // No Toques
 ReactDOM.render(
   <UserInfo email="scurry@warriors.com">
-    {(user, changeUser) => user === null ?
-      <NotFound /> : <UserCard user={user} changeUser={changeUser} />
-    }
+    {(users, addUser) => user === null ?
+      <NoUsers /> : <UserCards users={users} addUser={addUser} />}
   </UserInfo>,
   document.getElementById('container')
 );
