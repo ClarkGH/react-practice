@@ -4,16 +4,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const userData = {
-  'scurry@warriors.com': {
-    firstName: 'Steph',
-    lastName: 'Curry',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnHBqYZ7nE0Bo6PcpzHbo4ONXpSXkG8kzI8rSUhTvm2LP6DHm9',
-  },
-  'kdurant@warriors.com': {
-    firstName: 'Kevin',
-    lastName: 'Durant',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffO_a5ljAYdZaqtiFgHVQ_F3pIwChM8wOvhBOzt-O1yZq8-Pbvg',
-  },
+    "scurry@warriors.com": {
+        "firstName": "Stephen",
+        "lastName": "Curry",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnHBqYZ7nE0Bo6PcpzHbo4ONXpSXkG8kzI8rSUhTvm2LP6DHm9"
+    },
+    "kdurant@warriors.com": {
+        "firstName": "Kevin",
+        "lastName": "Durant",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffO_a5ljAYdZaqtiFgHVQ_F3pIwChM8wOvhBOzt-O1yZq8-Pbvg"
+    },
+    "kthompson@warriors.com": {
+        "firstName": "Klay",
+        "lastName": "Thompson",
+        "photo": "http://images.complex.com/complex/images/c_fill,g_center,w_1200/fl_lossy,pg_1,q_auto/nvyfeqsgx7xy9gs58tpo/klay-thompson-celtics"
+    },
+    "dgreen@warriors.com": {
+        "firstName": "Draymond",
+        "lastName": "Green",
+        "photo": "http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6589.png&w=350&h=254"
+    },
+    "aiguodala@warriors.com": {
+        "firstName": "Andre",
+        "lastName": "Iguodala",
+        "photo": "http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2386.png&w=350&h=254"
+    }
 }
 
 // grab the userData in this method
