@@ -41,16 +41,18 @@ class UserInfo extends React.Component{
   // fetchUser(userData);
   constructor(props) {
     super(props);
-    
+
     this.state = {
       users: userData
     };
   }
 
   render() {
-    return (<div>
-      {this.props.children(this.state.users, fetchUser)}    
-    </div>)
+    return (
+      <div>
+        {this.props.children(this.state.users, fetchUser)}    
+      </div>
+    );
   }
 }
 
@@ -62,8 +64,9 @@ class UserCards extends React.Component{
 
   render() {
     return (
-      <div> 
-        <p> Player card here </p>
+      <div className="player-card"> 
+        <img className="player-img" src={this.props.users['scurry@warriors.com'].photo} />
+        <h2 className="player-name">{this.props.users['scurry@warriors.com'].firstName} {this.props.users['scurry@warriors.com'].lastName} </h2>
       </div>
     );
   }
@@ -71,7 +74,7 @@ class UserCards extends React.Component{
 
 class NoUsers extends React.Component{
   render() {
-    return alert('player not found');
+    return alert('Player not found');
   }
 }
 
