@@ -2,7 +2,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
 
 // grab the userData in this method
 const fetchUser = (email) => {
@@ -11,20 +10,62 @@ const fetchUser = (email) => {
 
 class UserInfo extends React.Component{
   // Implement this
-  fetchUser(userData);
+  // fetchUser(userData);
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      nothing: 'thrice'
+    };
+  }
+
+  render() {
+    return (
+      <div> 
+        {console.log(this.props)}
+        <p> {this.state.nothing} </p>
+        }
+      </div>
+    );
+  }
 }
 
 class UserCard extends React.Component{
   // Implement this
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      something: 'nice'
+    };
+  }
+
+  render() {
+    return (
+      <div> 
+        <p> poop </p>
+      </div>
+    );
+  }
 }
 
 class NotFound extends React.Component{
   // Implement this
-  return (
-    <div>
-      <p> Spooky Scary Skeletons send shivers down your spine.</p>
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      something: 'bad'
+    };
+  }
+
+  render() {
+    return (
+      <div> 
+        <p> {this.state.something} </p>
+      </div>
+    );
+  }
 }
 
 const userData = {
@@ -44,7 +85,8 @@ const userData = {
 ReactDOM.render(
   <UserInfo email="scurry@warriors.com">
     {(user, changeUser) => user === null ?
-      <NotFound /> : <UserCard user={user} changeUser={changeUser} />}
+      <NotFound /> : <UserCard user={user} changeUser={changeUser} />
+    }
   </UserInfo>,
   document.getElementById('container')
 );
