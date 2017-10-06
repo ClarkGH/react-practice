@@ -39,7 +39,7 @@ class UserInfo extends React.Component{
   }
 }
 
-class UserCard extends React.Component{
+class UserCards extends React.Component{
   // Implement this
   constructor(props) {
     super(props);
@@ -54,7 +54,7 @@ class UserCard extends React.Component{
   }
 }
 
-class NotFound extends React.Component{
+class NoUsers extends React.Component{
   // Implement this
   constructor(props) {
     super(props);
@@ -74,7 +74,7 @@ class NotFound extends React.Component{
 }
 
 // No Toques
-React.render(
+ReactDOM.render(
   <UserInfo email="scurry@warriors.com">
     {(users, addUser) => users < 1 ?
       <NoUsers /> : <UserCards users={users} addUser={addUser} />}
