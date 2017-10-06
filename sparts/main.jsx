@@ -32,8 +32,8 @@ const userData = {
 }
 
 // grab the userData in this method
-const fetchUser = (email) => {
-  console.log(email);
+const fetchUser = (email) => { //return object with name & image url
+  
 }
 
 class UserInfo extends React.Component{
@@ -43,33 +43,36 @@ class UserInfo extends React.Component{
     super(props);
 
     this.state = {
-      users: userData,
-      input: this.props.email
+      emailInput: '',
+      users: [this.props.email]
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(value) {
     if (value) {
-      this.setState({ input: value });
-    } else {
-
+      this.setState({ emailInput: value });
     }
   }
 
   handleClick() {
-    // console.log(this.state.input);
+    fetchUser(this.state.emailInput);
   }
 
   render() {
     return (
       <div>
-        {this.props.children(this.state.users, fetchUser)}
+        {this.props.children(this.state.input, fetchUser)}
+
         <div className="getUser">
           <input 
             onChange={event => this.handleChange(event.target.value)} 
             type="text">
           </input>
-
+          <button onClick={this.handleClick}>
+            Add player
+          </button>
         </div>    
       </div>
     );
@@ -83,18 +86,16 @@ class UserCards extends React.Component{
   }
 
   render() {
+    console.log('cards props', this.props)
     return (
-      <div className="player-card"> 
-        <img className="player-img" src={this.props.users['scurry@warriors.com'].photo} />
-        <h2 className="player-name">{this.props.users['scurry@warriors.com'].firstName} {this.props.users['scurry@warriors.com'].lastName} </h2>
-      </div>
+      <div> 'Mama Mia' </div>
     );
   }
 }
 
 class NoUsers extends React.Component{
   render() {
-    return alert('Player not found');
+    return alert('No Players Found.');
   }
 }
 
