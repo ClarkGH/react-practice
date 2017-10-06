@@ -33,7 +33,9 @@ const userData = {
 
 // grab the userData in this method
 const fetchUser = (email) => {
-  // Implement this
+  if ( userData.email ) {
+    return userData.email;
+  }
 }
 
 class UserInfo extends React.Component{
@@ -43,14 +45,21 @@ class UserInfo extends React.Component{
     super(props);
 
     this.state = {
-      users: userData
+      users: userData,
+      input: this.props.email
     };
   }
 
   render() {
+    let input;
+
     return (
       <div>
-        {this.props.children(this.state.users, fetchUser)}    
+        {this.props.children(this.state.users, fetchUser)}
+        <div className="getUser">
+          <input type="text"></input>
+          <button>Add player</button>
+        </div>    
       </div>
     );
   }
@@ -78,7 +87,6 @@ class NoUsers extends React.Component{
   }
 }
 
-// No Toques
 ReactDOM.render(
   <UserInfo email="scurry@warriors.com">
     {(users, addUser) => users < 1 ?
