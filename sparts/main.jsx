@@ -74,9 +74,9 @@ class NotFound extends React.Component{
 }
 
 // No Toques
-ReactDOM.render(
+React.render(
   <UserInfo email="scurry@warriors.com">
-    {(users, addUser) => user === null ?
+    {(users, addUser) => users < 1 ?
       <NoUsers /> : <UserCards users={users} addUser={addUser} />}
   </UserInfo>,
   document.getElementById('container')
