@@ -33,7 +33,12 @@ const userData = {
 
 // grab the userData in this method
 const fetchUser = (email) => { //return object with name & image url
-  console.log(email)
+  if (userData[email]) {
+    return {
+      name: userData[email].firstName + ' ' + userData[email].lastName,
+      photo: userData[email].photo
+    }
+  }
 }
 
 class UserInfo extends React.Component{
@@ -44,15 +49,11 @@ class UserInfo extends React.Component{
     super(props);
 
     this.state = {
-      emailInput: '',
+      emailInput: [],
       users: []
     };
 
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentWillMount() {
-    
   }
 
   handleChange(value) {
@@ -62,7 +63,12 @@ class UserInfo extends React.Component{
   }
 
   handleClick() {
-    fetchUser(this.state.emailInput);
+    var newUser = fetchUser(this.state.emailInput);
+    if (newUser) {
+      this.setState( prevState => ({
+        users: [...this.state.users, newUser]
+      }));
+    }
   }
 
   render() {
@@ -75,7 +81,7 @@ class UserInfo extends React.Component{
             onChange={event => this.handleChange(event.target.value)} 
             type="text">
           </input>
-          <button onClick={this.handleClick}>
+          <button onClick={this.fetchUser}>
             Add player
           </button>
         </div>    
@@ -91,7 +97,6 @@ class UserCards extends React.Component{
   }
 
   render() {
-    console.log('cards props', this.props)
     return (
       <div> 'Mama Mia' </div>
     );
