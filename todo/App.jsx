@@ -10,11 +10,21 @@ class App extends React.Component {
       term: '',
       items: [],
     }
-    
+  
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(event) {
+    this.setState({term: event.target.value});
   }
 
   render() {
-    return ( <div>We Gonna TODO a todo, cuz basics</div> );
+    return ( 
+      <div>
+        <p>{this.state.term}</p>
+        <input value={this.state.term} onChange={this.onChange} />
+      </div>
+    );
   }
 }
 
