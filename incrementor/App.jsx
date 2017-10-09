@@ -10,6 +10,10 @@ class App extends React.Component {
       clicks: 0,
       show: true
     };
+
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   decrement() {
@@ -31,7 +35,16 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div></div>);
+    return (
+      <div>
+        <button onClick={this.increment}>Increment</button>
+        <button onClick={this.decrement}>Decrement</button>
+        <button onClick={this.toggle}>
+          {this.state.show ? 'Hide number' : 'Show number'}
+        </button>
+        {this.state.show ? <h2>{this.state.clicks}</h2> : <h2>Nope</h2>}
+      </div>
+    );
   }
 }
 
