@@ -29,11 +29,14 @@ class App extends React.Component {
   }
 
   render() {
-    return ( 
-      <form className="todo" onSubmit={this.onSubmit}>
-        <input value={this.state.term} onChange={this.onChange} />
-        <button>Submit</button>
-      </form>
+    return (
+      <div className="todo"> 
+        <form className="todo-form" onSubmit={this.onSubmit}>
+          <input value={this.state.term} onChange={this.onChange} />
+          <button>Submit</button>
+        </form>
+        <List items={this.state.items}/>
+      </div>
     );
   }
 }
