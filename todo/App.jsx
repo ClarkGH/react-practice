@@ -12,18 +12,27 @@ class App extends React.Component {
     }
   
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event) {
     this.setState({term: event.target.value});
   }
 
+  onSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      term: '',
+      items: [...this.state.items, this.state.term]
+    });
+  }
+
   render() {
     return ( 
-      <div>
-        <p>{this.state.term}</p>
+      <form className="todo" onSubmit={this.onSubmit}>
         <input value={this.state.term} onChange={this.onChange} />
-      </div>
+        <button>Submit</button>
+      </form>
     );
   }
 }
