@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import List from './List.jsx';
 
 class App extends React.Component {
   constructor(props) {
