@@ -7,8 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicks = 0,
-      show = true
+      clicks: 0,
+      show: true
     };
   }
 
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   render() {
-    return ();
+    return (<div></div>);
   }
 }
 
