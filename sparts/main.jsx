@@ -33,58 +33,52 @@ const userData = {
 
 // grab the userData in this method
 const fetchUser = (email) => { //return object with name & image url
-  if (userData[email]) {
+  if ( userData[email] ) {
     return {
-      name: userData[email].firstName + ' ' + userData[email].lastName,
+      fullName: userData[email].firstName + ' ' + userData[email].lastName,
       photo: userData[email].photo
     }
+  } else {
+    return null;
   }
 }
 
 class UserInfo extends React.Component{
   // Implement this
-  // fetchUser(userData);
   constructor(props) {
-
     super(props);
-
     this.state = {
-      emailInput: [],
-      users: []
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleChange(value) {
-    if (value) {
-      this.setState({ emailInput: value });
+      term: '',
+      users: userData,
+      email: this.props.email,
+      addUser: ''
     }
   }
 
-  handleClick() {
-    var newUser = fetchUser(this.state.emailInput);
-    if (newUser) {
-      this.setState( prevState => ({
-        users: [...this.state.users, newUser]
-      }));
+  onChange(event) {
+    this.setState({term: event.target.value});
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    if (fetchUser(this.state.term)) {
+      this.setState({addUser: fetchUser(this.state.term)});
     }
+    console.log(this.state)
   }
 
   render() {
+    debugger
     return (
       <div>
-        {this.props.children(this.state.users, fetchUser)}
-
-        <div className="getUser">
+        <form onSubmit={this.onSubmit.bind(this)}>
           <input 
-            onChange={event => this.handleChange(event.target.value)} 
-            type="text">
+            placeholder={this.props.email} 
+            value={this.state.term} 
+            onChange={this.onChange.bind(this)}>
           </input>
-          <button onClick={this.fetchUser}>
-            Add player
-          </button>
-        </div>    
+          <button>Submit</button>
+        </form>
       </div>
     );
   }
@@ -92,14 +86,8 @@ class UserInfo extends React.Component{
 
 class UserCards extends React.Component{
   // Implement this
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    return (
-      <div> 'Mama Mia' </div>
-    );
+    return <div>Some Players Found.</div>;
   }
 }
 
@@ -111,8 +99,7 @@ class NoUsers extends React.Component{
 
 ReactDOM.render(
   <UserInfo email="scurry@warriors.com">
-    {(users, addUser) => users < 1 ?
-      <NoUsers /> : <UserCards users={users} addUser={addUser} />}
+    {(users, addUser) => users < 1 ? <NoUsers /> : <UserCards users={users} addUser={addUser} />}
   </UserInfo>,
   document.getElementById('container')
 );
