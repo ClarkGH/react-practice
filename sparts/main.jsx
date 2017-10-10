@@ -62,14 +62,17 @@ class UserInfo extends React.Component{
     const user = fetchUser(userData, this.state.term);
     if (user) {
       const newUserArr = this.state.users.concat(user);
-      
+
       this.setState({addUser: user});
       this.setState({users: newUserArr})
     }
   }
   render() {
     return (
-      <div>
+      <div style={{
+        textAlign: 'center',
+        backgroundColor: '#eee'
+      }}>
         {this.props.children(this.state.users, this.state.addUser)}
         <input onChange={this.onChange.bind(this)} value={this.state.term} placeholder={this.props.email}></input>
         <br/>
@@ -93,8 +96,20 @@ class UserCards extends React.Component{
           {this.props.users.map( user => {
             return (
               <div key={user.fullName}> 
-                <img src={user.photo} />
-                <h2>{user.fullName}</h2>
+                <img 
+                  src={user.photo} 
+                  style={{width: '100px'}}
+                />
+                <p 
+                  style={{
+                    border: '1px solid black', 
+                    color: 'red',
+                    margin: '5px auto',
+                    padding: '2px',
+                    width: '50%'
+                  }}>
+                    {user.fullName}
+                </p>
               </div>
             );
           })}
@@ -108,7 +123,7 @@ class UserCards extends React.Component{
 
 class NoUsers extends React.Component{
   render() {
-    return <div>No User Found.</div>;
+    return <div>No Users Found.</div>;
   }
 }
 
