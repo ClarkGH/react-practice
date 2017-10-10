@@ -1,8 +1,9 @@
-#Reddit Practice
+# Reddit Practice
 
-##To Run
+## To Run
 
 1. Clone repository
 2. Go to /redditAPI dir
-3. Enter "npm start" in terminal
-4. Visit http://localhost:8080
+3. Enter "yarn" in terminal to install dependencies (install yarn if you haven't)
+4. Enter "npm start" in terminal
+5. Visit http://localhost:8080
