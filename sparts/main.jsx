@@ -48,23 +48,27 @@ class UserInfo extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
-      newUser: ''
+      users: userData,
+      term: '',
+      addUser: ''
     };
   }
 
-  onChange() {
-    console.log('Changed');
+  onChange(event) {
+    this.setState({term: event.target.value});
   }
 
   onClick() {
-    console.log('Submitted');
+    const user = fetchUser(this.state.users, this.state.term);
+    if (user) {
+      this.setState({addUser: user});
+    }
   }
   render() {
     return (
       <div>
-        {this.props.children(this.state.users, this.state.newUser)}
-        <input onChange={this.onChange.bind(this)}></input>
+        {this.props.children(this.state.users, this.state.addUser)}
+        <input onChange={this.onChange.bind(this)} value={this.state.term} placeholder={this.props.email}></input>
         <button onClick={this.onClick.bind(this)}>Add User</button>
       </div>
     );
@@ -79,7 +83,16 @@ class UserCards extends React.Component{
   }
 
   render() {
-    return <div>Some Players Found.</div>;
+    if (this.props.addUser) {
+      return (
+        <div>
+          <img src={this.props.addUser.photo} />
+          <div>{this.props.addUser.fullName}</div>
+        </div>
+      )
+    } else {
+      return <NoUsers />
+    }
   }
 }
 
