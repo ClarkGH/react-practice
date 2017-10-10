@@ -32,7 +32,7 @@ const userData = {
 }
 
 // grab the userData in this method
-const fetchUser = (email) => { //return object with name & image url
+const fetchUser = (userData, email) => { //return object with name & image url
   if ( userData[email] ) {
     return {
       fullName: userData[email].firstName + ' ' + userData[email].lastName,
@@ -48,44 +48,26 @@ class UserInfo extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      term: '',
-      users: userData,
-      email: this.props.email,
-      addUser: ''
-    }
-  }
-
-  onChange(event) {
-    this.setState({term: event.target.value});
-  }
-
-  onSubmit(event) {
-    event.preventDefault();
-    if (fetchUser(this.state.term)) {
-      this.setState({addUser: fetchUser(this.state.term)});
-    }
-    console.log(this.state)
+      users: userData
+    };
   }
 
   render() {
-    debugger
     return (
       <div>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <input 
-            placeholder={this.props.email} 
-            value={this.state.term} 
-            onChange={this.onChange.bind(this)}>
-          </input>
-          <button>Submit</button>
-        </form>
+        {this.props.children(this.state.userData, this.props.email)}
       </div>
     );
   }
+
 }
 
 class UserCards extends React.Component{
   // Implement this
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return <div>Some Players Found.</div>;
   }
