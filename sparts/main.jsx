@@ -48,7 +48,7 @@ class UserInfo extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      users: userData,
+      users: [],
       term: '',
       addUser: ''
     };
@@ -59,9 +59,12 @@ class UserInfo extends React.Component{
   }
 
   onClick() {
-    const user = fetchUser(this.state.users, this.state.term);
+    const user = fetchUser(userData, this.state.term);
     if (user) {
+      const newUserArr = this.state.users.concat(user);
+      
       this.setState({addUser: user});
+      this.setState({users: newUserArr})
     }
   }
   render() {
@@ -69,6 +72,7 @@ class UserInfo extends React.Component{
       <div>
         {this.props.children(this.state.users, this.state.addUser)}
         <input onChange={this.onChange.bind(this)} value={this.state.term} placeholder={this.props.email}></input>
+        <br/>
         <button onClick={this.onClick.bind(this)}>Add User</button>
       </div>
     );
@@ -85,9 +89,15 @@ class UserCards extends React.Component{
   render() {
     if (this.props.addUser) {
       return (
-        <div>
-          <img src={this.props.addUser.photo} />
-          <div>{this.props.addUser.fullName}</div>
+        <div> 
+          {this.props.users.map( user => {
+            return (
+              <div key={user.fullName}> 
+                <img src={user.photo} />
+                <h2>{user.fullName}</h2>
+              </div>
+            );
+          })}
         </div>
       )
     } else {
@@ -98,7 +108,7 @@ class UserCards extends React.Component{
 
 class NoUsers extends React.Component{
   render() {
-    return <div>No Player Found.</div>;
+    return <div>No User Found.</div>;
   }
 }
 
