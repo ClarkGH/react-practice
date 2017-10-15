@@ -23,7 +23,6 @@ export default class Body extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <button onClick={this.refreshList.bind(this)}>Refresh List</button>
