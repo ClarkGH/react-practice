@@ -21,8 +21,15 @@ export default class Body extends React.Component {
     console.log(this.state);
     return (
       <ul>
-        {this.state.contacts.map( (item, index)=> {
-          return (<li key={index}>Okay</li>);
+        {this.state.contacts.map((item, index)=> {
+          return (
+            <li key={item.id}>
+              <h3>Time Entered: {item.enteredAt}</h3>
+              <p>Make: {item.make}</p>
+              <p>Model: {item.model}</p>
+              <p>Color: {item.color}</p>
+            </li>
+          );
         })}
       </ul>
     );
