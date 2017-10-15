@@ -6,9 +6,9 @@ function CarsList(props) {
       return (
         <li key={item.id}>
           <h3>Time Entered: {item.enteredAt}</h3>
-          <p>Make: {item.make}</p>
-          <p>Model: {item.model}</p>
-          <p>Color: {item.color}</p>
+          <div>Make: {item.make}</div>
+          <div>Model: {item.model}</div>
+          <div>Color: {item.color}</div>
         </li>
       );
     })

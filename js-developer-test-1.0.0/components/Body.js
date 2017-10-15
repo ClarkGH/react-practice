@@ -18,12 +18,19 @@ export default class Body extends React.Component {
     this.setState({ contacts });
   }
 
+  refreshList() {
+    this.fetchContacts();
+  }
+
   render() {
     console.log(this.state);
     return (
-      <ul>
-        <CarsList contacts={this.state.contacts}/>
-      </ul>
+      <div>
+        <button onClick={this.refreshList.bind(this)}>Refresh List</button>
+        <ul>
+          <CarsList contacts={this.state.contacts}/>
+        </ul>
+      </div>
     );
   }
 }
