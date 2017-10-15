@@ -4,6 +4,7 @@ export default class Body extends React.Component {
   constructor(props) {
     super(props);
     this.fetchContacts = this.fetchContacts.bind(this);
+    this.state = { contacts: ''};
   }
 
   componentDidMount() {
@@ -17,6 +18,13 @@ export default class Body extends React.Component {
   }
 
   render() {
-    return <div>hello world!</div>;
+    console.log(this.state);
+    return (
+      <ul>
+        {this.state.contacts.map( (item, index)=> {
+          return (<li key={index}>Okay</li>);
+        })}
+      </ul>
+    );
   }
 }
