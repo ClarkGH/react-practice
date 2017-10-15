@@ -4,7 +4,7 @@ export default class Body extends React.Component {
   constructor(props) {
     super(props);
     this.fetchContacts = this.fetchContacts.bind(this);
-    this.state = { contacts: ''};
+    this.state = { contacts: []};
   }
 
   componentDidMount() {
