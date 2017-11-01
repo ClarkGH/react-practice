@@ -2,14 +2,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactRouter from 'react-router';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import App from './components/App.js';
 
 ReactDOM.render(
-  <ReactRouter.Router history={ReactRouter.hashHistory}>
-    <ReactRouter.Route path="/" component={App}>
- 
-    </ReactRouter.Route>
-  </ReactRouter.Router>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 );
