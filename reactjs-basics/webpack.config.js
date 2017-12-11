@@ -1,7 +1,7 @@
-var path = require("path");
+const path = require("path");
 
-var DIST_DIR = path.resolve(__dirname, "dist");
-var SRC_DIR = path.resolve(__dirname, "src");
+const DIST_DIR = path.resolve(__dirname, "dist"),
+  SRC_DIR = path.resolve(__dirname, "src");
 
 var config = {
     entry: SRC_DIR + "/app/index.js",
@@ -17,7 +17,7 @@ var config = {
                 include: SRC_DIR,
                 loader: "babel-loader",
                 query: {
-                    presets: ["react", "env", "stage-2"]
+                    presets: ["react", "env"]
                 }
             }
         ]
