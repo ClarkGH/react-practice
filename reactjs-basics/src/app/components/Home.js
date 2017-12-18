@@ -5,6 +5,7 @@ export class Home extends React.Component {
     return(
       <div>
         <p>beep boop</p>
+        { 1 === 2 ? "Yes":"No" }
       </div>
     );
   }
