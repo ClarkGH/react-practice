@@ -7,6 +7,11 @@ import { Home } from './components/Home';
 
 class App extends React.Component {
   render() {
+    var batman = {
+        realName: "Bruce Wayne",
+        age: 46,
+        hobbies: ["Philandering", "Meaningless Sex", "Demeaning Robin"]
+    };
     return (
       <div className="container">
         <div className="row">
@@ -16,7 +21,9 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col-xs-10 col-xs-offset-1">
-            <Home/>
+            <Home name={"Batman"} age={46} user={batman} >
+              <p>Props child element!</p>
+            </Home>
           </div>
         </div>
       </div>
