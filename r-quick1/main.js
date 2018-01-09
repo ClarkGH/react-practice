@@ -2,9 +2,10 @@ const h1 = React.createElement('h1', null, 'Hello World');
 
 class HelloWorld extends React.Component {
   render() {
+    console.log(this.props);
     return React.createElement(
       'h1', 
-      null, 
+      this.props, 
       'Hello ' + this.props.frameworkName + ' world!'
     );
   }
