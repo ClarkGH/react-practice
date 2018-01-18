@@ -45,8 +45,28 @@ photoButton.addEventListener('click', (event) => {
   event.preventDefault();
 }, false);
 
-// TODO: Filter event
+// Filter event
+photoFilter.addEventListener('change', (event) => {
+  // Set filter to specified option
+  filter = event.target.value;
+  // Set filter in streaming vid
+  video.style.filter = filter;
+  event.preventDefault;
+})
 
+// Clear event
+clearButton.addEventListener('click', (evt) => {
+  // Clear photos
+  photos.innerHTML = '';
+  // reset filter
+  filter = 'none';
+  // Reset video filter
+  video.style.filter = filter;
+  // Reset select list
+  photoFilter.selectedIndex = 0;
+})
+
+// Take picture from canvas
 function takePicture() {
   // Create canvas
   const context = canvas.getContext('2d');
@@ -65,6 +85,9 @@ function takePicture() {
 
     // Set img src
     img.setAttribute('src', imgUrl);
+
+    // Set img filter
+    img.style.filter = filter;
 
     // Add image to photos
     photos.appendChild(img);
