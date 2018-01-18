@@ -16,7 +16,7 @@ const video = document.getElementById('cam-video'),
 navigator.mediaDevices.getUserMedia({video: true, audio: false})
   .then( (stream) => {
     // Link to video source
-    video.srcObject(stream);
+    video.srcObject = stream;
     // Play video
     video.play();
   })
