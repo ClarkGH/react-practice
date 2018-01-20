@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-const Index = () => (
+const About = () => (
   <div>
-    <h1>Welcome to my first Next.js Page</h1>
-    <p>Just a basic application</p>
+    <h1>About me.</h1>
+    <p>I'm not batman</p>
     <ul>
       <li>
         <Link href="/">
@@ -19,4 +19,4 @@ const Index = () => (
   </div>
 );
 
-export default Index;
+export default About;
