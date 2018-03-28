@@ -51,15 +51,16 @@ class Chat extends Component {
 
   submitMessage(e) {
     e.preventDefault();
-
-    this.setState({
-      chats: this.state.chats.concat([{
-        username: "Batman",
-        content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>
-      }])
-    }, () => {
-      ReactDOM.findDOMNode(this.refs.msg).value = "";
-    });
+    if (ReactDOM.findDOMNode(this.refs.msg).value){
+      this.setState({
+        chats: this.state.chats.concat([{
+          username: "Batman",
+          content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>
+        }])
+      }, () => {
+        ReactDOM.findDOMNode(this.refs.msg).value = "";
+      });
+    }
   }
 
   render() {
