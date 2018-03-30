@@ -9,28 +9,28 @@ class Chat extends Component {
     this.state = {
       chats: [{
         username: "Batman",
-        content: <p>WHERE IS HE!</p>,
+        content: "WHERE IS HE!",
       }, {
         username: "Robin",
-        content: <p>Where is who?</p>,
+        content: "Where is who?",
       }, {
         username: "Batman",
-        content: <p>You're gonna love me!</p>
+        content: "You're gonna love me!"
       }, {
         username: "Robin",
-        content: <p>Holy geometry, batman.</p>
+        content: "Holy geometry, batman."
       }, {
         username: "Batman",
-        content: <p>I liek chocolate milk!</p>
+        content: "I liek chocolate milk!"
       }, {
         username: "Robin",
-        content: <p>Have you gone mad?</p>
+        content: "Have you gone mad?"
       }, {
         username: "Batman",
-        content: <p>*Eats a pear*</p>
+        content: "*Eats a pear*"
       }, {
         username: "Robin",
-        content: <p>...</p>
+        content: "..."
       }]
     };
 

@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Message extends Component {
-  render() {
-    return (
-      <div className="Message">
-        <h1>I like turtles</h1>
-      </div>
-    )
-  }
-}
+const Message = ({ chat, user }) => (
+  <li className={`chat ${user === chat.username ? "right" : "left"}`}>
+    <p>{chat.username}: {chat.content}</p>
+  </li>
+);
 
 export default Message;
