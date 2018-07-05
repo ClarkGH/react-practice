@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-export default function Hoc(HocComponent) {
+export default function Hoc(WrappedComponent) {
   return class extends Component {
     render() {
       return (
         <div>
-          <HocComponent></HocComponent>
+          <WrappedComponent></WrappedComponent>
         </div>
 
       );
