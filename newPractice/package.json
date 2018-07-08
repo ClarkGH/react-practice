@@ -5,9 +5,7 @@
   "author": "clark hinchcliff",
   "license": "MIT",
   "scripts": {
-    "start": "node server/app.js",
-    "dev-cli": "./node_modules/.bin/webpack-dev-server --inline --hot --module-bind 'css=style-loader!css-loader'--module-bind 'jsx=react-hot-loader!babel-loader' --config webpack.dev-cli.config.js",
-    "dev": ".node_modules/.bin/webpack-dev-server --config webpack.dev.config.js"
+    "start": "nodemon server/app.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
