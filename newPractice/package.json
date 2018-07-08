@@ -5,7 +5,8 @@
   "author": "clark hinchcliff",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server/app.js"
+    "start": "nodemon server/app.js",
+    "run": "node server/app.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
