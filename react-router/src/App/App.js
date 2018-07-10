@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createHashHistory';
 
 // Components for routes
 import About from './Components/About';
@@ -9,6 +9,9 @@ import Content from './Components/Content';
 import Post from './Components/Post';
 import Posts from './Components/Posts';
 import Login from './Components/Login';
+
+// History Method
+let hashHistory = createHistory();
 
 const App = () => {
   return(
