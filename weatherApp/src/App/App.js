@@ -18,8 +18,8 @@ class App extends React.Component {
   handleChange(event) {
     console.log(event.target.name);
     console.log(event.target.value);
-    // this.setState({
-    // });
+    this.setState({
+    });
   }
 
   handleSubmit(event) {
@@ -33,7 +33,7 @@ class App extends React.Component {
         <input type='text' name='city' onChange={this.handleChange} value={this.state.city} />
 
         <label>City</label>
-        <input type='text' name='state' onChange={this.handleChange value={this.state.city}} />        
+        <input type='text' name='state' onChange={this.handleChange} value={this.state.city} />        
         <input type='submit' value="submit" />
       </form>
     );
