@@ -24,16 +24,17 @@ class App extends React.Component {
 
   handleSubmit(event) {
     alert('submission passed');
+    event.preventDefault();
   }
 
   render () {
     return (
-      <form> 
+      <form onSubmit={this.handleSubmit}> 
         <label>City</label>
         <input type='text' name='city' onChange={this.handleChange} value={this.state.city} />
 
         <label>City</label>
-        <input type='text' name='state' onChange={this.handleChange} value={this.state.city} />        
+        <input type='text' name='state' onChange={this.handleChange} value={this.state.state} />        
         <input type='submit' value="submit" />
       </form>
     );
