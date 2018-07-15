@@ -1,40 +1,42 @@
-import React from 'react';
-import axios from 'axios';
+// TODO: Transition to using this HOC
 
-const withFetching = (url) => {
-  return ((Component) => {
-    class WithFetching extends React.Component {
-      constructor(props) {
-        super(props);
+// import React from 'react';
+// import axios from 'axios';
 
-        this.state = {
-          data: null,
-          isLoading: false,
-          error: null,
-        };
-      }
+// const withFetching = (url) => {
+//   return ((Component) => {
+//     class WithFetching extends React.Component {
+//       constructor(props) {
+//         super(props);
 
-      componentDidMount() {
-        this.setState({ isLoading: true});
+//         this.state = {
+//           data: null,
+//           isLoading: false,
+//           error: null,
+//         };
+//       }
 
-        axios.get(url)
-          .then( (result) => {
-            this.setState({
-              data: result.data,
-              isLoading: false
-            })
-          })
-          .catch(error => this.setState({
-            error,
-            isLoading: false
-          }));
-      }
+//       componentDidMount() {
+//         this.setState({ isLoading: true});
 
-      render() {
-        return <Component {...this.props} {...this.state} />;
-      }
-    }
-  });
-}
+//         axios.get(url)
+//           .then( (result) => {
+//             this.setState({
+//               data: result.data,
+//               isLoading: false
+//             })
+//           })
+//           .catch(error => this.setState({
+//             error,
+//             isLoading: false
+//           }));
+//       }
 
-export default withFetching;
+//       render() {
+//         return <Component {...this.props} {...this.state} />;
+//       }
+//     }
+//   });
+// }
+
+// export default withFetching;

@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = { 
       city: 'San Francisco',
       icon: '',
-      state: 'CA',
+      usState: 'CA',
       temperature: '',
       weather: ''
     }
@@ -22,12 +22,27 @@ class App extends React.Component {
     console.log(event.target.name);
     console.log(event.target.value);
     this.setState({
+      [this.event.target.name] : this.event.target.value,
     });
+  }
+
+  handleFetch(url) {
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      })
+      .catch(function (err) {
+        console.error('Fetch Error : ', err);
+      });
   }
 
   handleSubmit(event) {
     alert('submission passed');
     event.preventDefault();
+    this.handleFetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city},${this.state.usState}&key=${API_KEY}`);
   }
 
   render () {
@@ -38,11 +53,11 @@ class App extends React.Component {
           <input type='text' name='city' onChange={this.handleChange} value={this.state.city} />
 
           <label>City</label>
-          <input type='text' name='state' onChange={this.handleChange} value={this.state.state} />        
+          <input type='text' name='usState' onChange={this.handleChange} value={this.state.usState} />        
           <input type='submit' value="submit" />
         </form>
         <p>Temperature: </p>
-        <p>Weather:</p>
+        <p>Weather: </p>
       </div>
     );
   }
