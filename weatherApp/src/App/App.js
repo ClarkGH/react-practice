@@ -8,7 +8,7 @@ class App extends React.Component {
     super (props);
     this.state = { 
       city: 'San Francisco',
-      icon: '',
+      icon: 'ao1d',
       usState: 'CA',
       temperature: '',
       weather: ''
@@ -19,8 +19,6 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target.name);
-    console.log(event.target.value);
     this.setState({
       [this.event.target.name] : this.event.target.value,
     });
@@ -28,11 +26,16 @@ class App extends React.Component {
 
   handleFetch(url) {
     fetch(url)
-      .then(function (response) {
+      .then( (response) => {
         return response.json();
       })
-      .then(function (data) {
-        console.log(data);
+      .then( (data) => {
+        debugger;
+        this.setState({
+          temperature: data.temp,
+          // weather: data.weather.description,
+          // icon: data.weather.icon
+        })
       })
       .catch(function (err) {
         console.error('Fetch Error : ', err);
@@ -40,7 +43,6 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('submission passed');
     event.preventDefault();
     this.handleFetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city},${this.state.usState}&key=${API_KEY}`);
   }
@@ -56,8 +58,8 @@ class App extends React.Component {
           <input type='text' name='usState' onChange={this.handleChange} value={this.state.usState} />        
           <input type='submit' value="submit" />
         </form>
-        <p>Temperature: </p>
-        <p>Weather: </p>
+        <p>Temperature: {this.state.temperature}</p>
+        <p>Weather: <img src={`images/icons/${this.state.icon}.png`}></img> {this.state.weather}</p>
       </div>
     );
   }
