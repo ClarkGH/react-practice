@@ -8,7 +8,7 @@ class App extends React.Component {
     super (props);
     this.state = { 
       city: 'San Francisco',
-      icon: 'ao1d',
+      icon: 'c01d',
       usState: 'CA',
       temperature: '',
       weather: ''
@@ -30,11 +30,13 @@ class App extends React.Component {
         return response.json();
       })
       .then( (data) => {
-        debugger;
+        console.log(data.data[0]);
+        console.log(data.data[0].weather.icon);
+        console.log(data.data[0].temp);
         this.setState({
-          temperature: data.temp,
-          // weather: data.weather.description,
-          // icon: data.weather.icon
+          temperature: data.data[0].temp,
+          weather: data.data[0].weather.description,
+          icon: data.data[0].weather.icon
         })
       })
       .catch(function (err) {
