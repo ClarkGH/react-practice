@@ -20,7 +20,7 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({
-      [this.event.target.name] : this.event.target.value,
+      [event.target.name] : event.target.value,
     });
   }
 
@@ -30,9 +30,6 @@ class App extends React.Component {
         return response.json();
       })
       .then( (data) => {
-        console.log(data.data[0]);
-        console.log(data.data[0].weather.icon);
-        console.log(data.data[0].temp);
         this.setState({
           temperature: data.data[0].temp,
           weather: data.data[0].weather.description,
