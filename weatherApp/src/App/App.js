@@ -4,6 +4,7 @@ import React from 'react';
 import API_KEY from '../secret';
 
 import normalizedStyles from './css/normalize.css';
+import mainStyles from './css/main.css';
 
 class App extends React.Component {
   constructor (props) {
@@ -51,16 +52,18 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}> 
-          <label>City</label>
+        <header><h1 className='title'>Get The Weather</h1></header>
+        <form className='weatherForm' onSubmit={this.handleSubmit}> 
+          <label>City: </label>
           <input type='text' name='city' onChange={this.handleChange} value={this.state.city} />
-
-          <label>City</label>
-          <input type='text' name='usState' onChange={this.handleChange} value={this.state.usState} />        
+          <br/>
+          <label>State: </label>
+          <input type='text' name='usState' onChange={this.handleChange} value={this.state.usState} />     
+          <br/>   
           <input type='submit' value="submit" />
         </form>
-        <p>Temperature: {this.state.temperature}</p>
-        <p>Weather: <img src={`images/icons/${this.state.icon}.png`}></img> {this.state.weather}</p>
+        <h2>Temperature: {this.state.temperature}</h2>
+        <h2>Weather: <img src={`images/icons/${this.state.icon}.png`}></img> {this.state.weather}</h2>
       </div>
     );
   }
