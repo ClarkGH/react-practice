@@ -3,6 +3,8 @@ import React from 'react';
 // API Key
 import API_KEY from '../secret';
 
+import normalizedStyles from './css/normalize.css';
+
 class App extends React.Component {
   constructor (props) {
     super (props);
