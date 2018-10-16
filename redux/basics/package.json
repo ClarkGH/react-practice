@@ -1,0 +1,14 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.4.1"
+  }
+}
