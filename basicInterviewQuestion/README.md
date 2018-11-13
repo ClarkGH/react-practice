@@ -1,6 +1,11 @@
 # Basic React Interview Assessment
 I've set up a very basic react application, follow the assessment directions to the best of your abilities and ask any questions for clarification.
 
+## To run
+1. $ yarn install
+2. $ yarn start
+3. Open localhost:8080 in your browser
+4. run webpack whenever you made a code change (I have not yet implemented hot reloading)
 
 ## The Assessment
 1. Create a react application that has 4 nodes

@@ -23,7 +23,7 @@ class App extends React.Component {
           nodes.map(
             (nodeText, index) => {
               /* using index, generally should be some form props.id if data has them */ 
-              return <MagicNode key={index} style={(this.state.activeIndex && (this.state.activeIndex === index)) ? '#F00' : '#FFF'} onClick={() => this.clickHandler(node)} text={node} />
+              return <MagicNode key={index} color={( !isNaN(this.state.activeIndex) && (this.state.activeIndex === index)) ? '#F00' : '#FFF'} onClick={() => this.clickHandler(index)} text={nodeText} />
             }
           )
         }
