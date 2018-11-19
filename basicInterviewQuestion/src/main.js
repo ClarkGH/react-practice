@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App/App';
+import MagicNodeList from './App/MagicNodeList';
 
 ReactDOM.render(
-  <App />,
+  <MagicNodeList />,
   document.getElementById('root'),
 );

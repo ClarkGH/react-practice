@@ -1,7 +1,7 @@
 import React from 'react';
 
 function MagicNode(props) {
-  return <div onClick={props.onClick} style={{backgroundColor: props.color}}>{props.text}</div>;
+  return <li className={props.className} onClick={props.clickHandler}>{props.children}</li>
 }
 
 export default MagicNode;
